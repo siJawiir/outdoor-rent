@@ -1,0 +1,36 @@
+.searchIcon {
+  display: grid;
+  place-items: center;
+}
+
+.section-title {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap; 
+}
+
+.section-title > span {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title > span:before,
+.section-title > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: #3c6e71 ;
+}
+
+.section-title > span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.section-title > span:after {
+    left: 100%;
+    margin-left: 15px;
+}
