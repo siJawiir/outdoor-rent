@@ -12,6 +12,8 @@ import EditCategoryPage from "./EditCategoryPage";
 import EditGearPage from "./EditGearPage";
 import EditTransactionPage from "./EditTransactionPage";
 import EditCustomerPage from "./EditCustomerPage";
+import LoginPage from "./LoginPage";
+import RegisterPage from "./RegisterPage";
 
 export {
   Homepage,
@@ -28,4 +30,6 @@ export {
   EditCustomerPage,
   EditGearPage,
   EditTransactionPage,
+  LoginPage,
+  RegisterPage,
 };

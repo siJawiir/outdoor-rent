@@ -29,7 +29,7 @@ function EditGear() {
         price: result.price,
         CategoryId: result.CategoryId,
         description: result.description,
-        // image: result.image,
+        image: result.image,
       });
       console.log(result);
     });
@@ -91,7 +91,6 @@ function EditGear() {
                     setForm({ ...form, CategoryId: e.target.value })
                   }
                 >
-                  <option selected>Select Category</option>
                   {categories.map((data) => (
                     <option key={data.id} value={data.id}>
                       {data.name}
@@ -102,17 +101,17 @@ function EditGear() {
               </div>
 
               <div className="form-floating mb-3">
-                <input
+                <textarea
                   value={form.description}
                   onChange={(e) =>
                     setForm({ ...form, description: e.target.value })
                   }
                   type="text"
                   className="form-control"
-                  id="floatingInput"
+                  id="floatingTextarea"
                   placeholder="alpha view"
                 />
-                <label for="floatingInput">Description</label>
+                <label for="floatingTextarea">Description</label>
               </div>
               {/* <div className="mb-3 text-center">
                 <img
@@ -120,7 +119,6 @@ function EditGear() {
                   className="mb-1 img-fluid img-thumbnail photo"
                 ></img>
                 <input
-                  value={form.image}
                   onChange={handleUpload}
                   type="file"
                   className="form-control"

@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { editCustomer, getCustomerById } from "../services/customersApi";
 
 function EditCustomer() {
-  
   const navigation = useNavigate();
   const params = useParams();
   const [form, setForm] = useState({
@@ -88,18 +87,18 @@ function EditCustomer() {
                 />
                 <label for="floatingInput">Address</label>
               </div>
-              <div className="form-floating mb-3">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">
+                  +62
+                </span>
                 <input
                   value={form.phone}
-                  onChange={(e) =>
-                    setForm({ ...form, phone: e.target.value })
-                  }
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   type="number"
                   class="form-control"
                   id="floatingInput"
-                  placeholder="alpha view"
+                  placeholder="Phone Number"
                 />
-                <label for="floatingInput">Phone</label>
               </div>
               {/* <div className="mb-3 text-center">
                 <img

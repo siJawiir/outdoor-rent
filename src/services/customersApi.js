@@ -12,7 +12,7 @@ const getCustomers = (cb) => {
   })
     .then((result) => {
       console.log(result.data);
-      cb(result.data);
+      cb(result.data.sort((a, b) => (a.name > b.name ? 1 : -1)));
     })
     .catch((err) => {
       console.log(err);
@@ -20,7 +20,7 @@ const getCustomers = (cb) => {
 };
 
 const addCustomer = (obj) => {
-  const { name, email, address, image } = obj;
+  const { name, email, address, phone, image } = obj;
   axios({
     method: "POST",
     url: `${URL}/customers`,
@@ -28,6 +28,7 @@ const addCustomer = (obj) => {
       name,
       email,
       address,
+      phone,
       image,
     },
   })

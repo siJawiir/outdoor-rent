@@ -5,7 +5,6 @@ import SuccessAlert from "../utils/SuccessAlert";
 
 const URL = `http://localhost:3001/api`;
 
-
 const getCategories = (cb) => {
   axios({
     method: "GET",
@@ -13,7 +12,7 @@ const getCategories = (cb) => {
   })
     .then((result) => {
       console.log(result.data);
-      cb(result.data);
+      cb(result.data.sort((a, b) => (a.name > b.name ? 1 : -1)));
     })
     .catch((err) => {
       console.log(err);
@@ -21,21 +20,21 @@ const getCategories = (cb) => {
 };
 
 const addCategory = (obj) => {
-    const {name} = obj
-    axios({
-      method: "POST",
-      url: `${URL}/categories`,
-      data: {
-        name
-      },
+  const { name } = obj;
+  axios({
+    method: "POST",
+    url: `${URL}/categories`,
+    data: {
+      name,
+    },
+  })
+    .then((result) => {
+      SuccessAlert();
     })
-      .then((result) => {
-        SuccessAlert();
-      })
-      .catch((err) => {
-        ErrorAlert();
-      });
-  };
+    .catch((err) => {
+      ErrorAlert();
+    });
+};
 
 const deleteCategory = (id) => {
   Swal.fire({
@@ -92,5 +91,10 @@ const getCategoryById = async (id, cb) => {
     });
 };
 
-
-export { getCategories, addCategory, deleteCategory, editCategory, getCategoryById };
+export {
+  getCategories,
+  addCategory,
+  deleteCategory,
+  editCategory,
+  getCategoryById,
+};

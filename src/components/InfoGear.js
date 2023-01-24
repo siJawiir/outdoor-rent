@@ -1,24 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getCategories, getCategoryById } from "../services/categoriesApi";
-import { getGearById, getGears } from "../services/gearsApi";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import { Link, useParams } from "react-router-dom";
+import { deleteGear, getGearById, getGears } from "../services/gearsApi";
 import BackButton from "../utils/BackButton";
 
 function InfoGear() {
-  //   const [gears, setGears] = useState([]);
-  //     const getHandler = () => {
-  //       getGearById((result) => setGears(result));
-  //     };
-  //     getHandler();
-
   const [gear, setGear] = useState([]);
   const params = useParams();
-  const { id } = params;
 
   const getGearInfo = () => {
     const { id } = params;
     getGearById(+id, (result) => {
       setGear({
+        id: result.id,
         name: result.name,
         price: result.price,
         CategoryId: result.Category.name,
@@ -55,8 +49,28 @@ function InfoGear() {
               </p>
             </div>
             <h4 className="card-text position-absolute bottom-0 end-0 pe-3 pb-3 color-primary">
-              Rp {gear.price}/day
+              <span className="color-red">Rp {gear.price}</span>/day
             </h4>
+            <div className="d-flex justify-content position-absolute bottom-0 ms-3 mb-3">
+              <Link
+                to={`/gears/edit/${gear.id}`}
+                className="btn btn-success btn-sm text-white rounded me-2"
+                type="submit"
+              >
+                {" "}
+                Edit
+                <FaEdit className="mx-1" />
+              </Link>
+              <button
+                onClick={() => deleteGear(gear.id)}
+                className="btn btn-danger btn-sm text-white rounded"
+                type="submit"
+              >
+                {" "}
+                Delete
+                <FaTrashAlt className="mx-1" />
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -80,14 +80,14 @@ function GearForm() {
               </div>
 
               <div className="form-floating mb-3">
-                <input
+                <textarea
                   onChange={(e) => setDescription(e.target.value)}
                   type="text"
                   className="form-control"
-                  id="floatingInput"
+                  id="floatingTextarea"
                   placeholder="alpha view"
                 />
-                <label for="floatingInput">Description</label>
+                <label for="floatingTextarea">Description</label>
               </div>
               {/* <div className="mb-3 text-center">
                 <img

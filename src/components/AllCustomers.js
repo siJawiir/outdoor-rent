@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import DataNotFound from "./DataNotFound";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import {
+  FaEdit,
+  FaTrashAlt,
+  FaEnvelope,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 import { getCustomers, deleteCustomer } from "../services/customersApi";
 import AddButton from "../utils/AddButton";
 import { Link } from "react-router-dom";
@@ -18,19 +24,29 @@ function AllCustomers() {
       <div className="container my-3 mx-5 min-vh-100">
         <div className="row row-cols-5">
           {customers.map((customer) => {
-            const { id, name, email, address, image } = customer;
+            const { id, name, email, address, phone, image } = customer;
             return (
               <div className="col mb-3">
-                <div className="card text-center">
+                <div className="card">
                   <img
                     className="card-img-top"
                     src="https://via.placeholder.com/600x400?text=user"
                     alt="Card image cap"
                   />
+                  <h5 className="card-header text-center color-primary">
+                    {name}{" "}
+                  </h5>
                   <div className="card-body">
-                    <h5 className="card-title">{name} </h5>
-                    <p className="card-text">{email}</p>
-                    <p className="card-text">{address}</p>
+                    <p className="card-text">
+                      <FaEnvelope /> {email}
+                    </p>
+                    <p className="card-text">
+                      {" "}
+                      <FaPhoneAlt /> +62{phone}
+                    </p>
+                    <p className="card-text">
+                      <FaMapMarkerAlt /> {address}
+                    </p>
                     <Link
                       to={`/customers/edit/${id}`}
                       className="btn btn-success btn-sm text-white rounded mx-2"
@@ -52,14 +68,12 @@ function AllCustomers() {
             );
           })}
         </div>
-        <AddButton link={"/customers/create"} />
       </div>
     );
   } else {
     return (
       <div>
         <DataNotFound />
-        <AddButton link={"/customers/create"} />
       </div>
     );
   }

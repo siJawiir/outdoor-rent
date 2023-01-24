@@ -24,9 +24,9 @@ function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <div className="me-2">
+            {/* <div className="me-2">
               <SearchButton />
-            </div>
+            </div> */}
             <ul className="navbar-nav mb-2 mb-lg-0 ">
               <div className="me-2">
                 <Dropdown
@@ -66,12 +66,12 @@ function Navbar() {
               </div>
             </ul>
           </div>
-          <div className="color-primary rounded-pill">
+          {/* <div className="color-primary rounded-pill">
             <a className="btn" href="/login">Login</a>
           </div>
           <div className="bg-color-primary rounded-pill">
             <a className="btn text-white" href="/register">Register</a>
-          </div>
+          </div> */}
         </div>
       </nav>
     </div>

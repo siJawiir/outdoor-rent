@@ -11,8 +11,8 @@ const getGears = (cb) => {
     url: `${URL}/gears`,
   })
     .then((result) => {
-      console.log(result.data);
-      cb(result.data);
+      // console.log(result.data.sort((a, b) => (a.name < b.name ? 1 : -1)));
+      cb(result.data.sort((a, b) => (a.name > b.name ? 1 : -1)));
     })
     .catch((err) => {
       console.log(err);
@@ -72,7 +72,7 @@ const editGear = async (id, gear) => {
   try {
     let result = await axios({
       method: "PUT",
-      url: `${URL}/gears/edit/${id}`,
+      url: `${URL}/gears/${id}`,
       data: gear,
     });
     SuccessAlert();

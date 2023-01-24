@@ -28,7 +28,6 @@ function CustomerForm() {
                   type="text"
                   class="form-control"
                   id="floatingInput"
-                  placeholder="alpha view"
                 />
                 <label for="floatingInput">Full Name</label>
               </div>
@@ -38,7 +37,6 @@ function CustomerForm() {
                   type="email"
                   class="form-control"
                   id="floatingInput"
-                  placeholder="alpha view"
                 />
                 <label for="floatingInput">Email</label>
               </div>
@@ -48,20 +46,22 @@ function CustomerForm() {
                   type="text"
                   class="form-control"
                   id="floatingInput"
-                  placeholder="alpha view"
                 />
                 <label for="floatingInput">Address</label>
               </div>
-              <div className="form-floating mb-3">
-                <input 
-                  onChange={(e) => setPhone(e.target.value)}
-                  type="text"
-                  class="form-control input-group"
-                  id="floatingInput"
-                  placeholder="alpha view"
-                />
-                <label for="floatingInput">Phone</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">
+                  +62
+                </span>
+                  <input
+                    onChange={(e) => setPhone(e.target.value)}
+                    type="number"
+                    class="form-control input-group"
+                    id="floatingInput"
+                    placeholder="Phone Number"
+                  />
               </div>
+
               {/* <div className="mb-3">
                 <input
                   onChange={(e) => setImage(e.target.value)}

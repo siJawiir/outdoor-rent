@@ -12,7 +12,7 @@ const getTransactions = (cb) => {
   })
     .then((result) => {
       console.log(result.data);
-      cb(result.data);
+      cb(result.data.sort((a, b) => (a.name > b.name ? 1 : -1)));
     })
     .catch((err) => {
       console.log(err);

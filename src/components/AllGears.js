@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { getCategories } from "../services/categoriesApi";
 import { deleteGear, getGears } from "../services/gearsApi";
 import AddButton from "../utils/AddButton";
+import SortButton from "../utils/SortButton";
 import DataNotFound from "./DataNotFound";
 
 function AllGears() {
@@ -25,7 +26,7 @@ function AllGears() {
 
   if (gears.length !== 0) {
     return (
-      <div className="container my-3 mx-5 min-vh-100">
+      <div className="container my-3 mx-5">
         <div className="row row-cols-5">
           {gears.map((gear) => {
             return (
@@ -37,7 +38,7 @@ function AllGears() {
                       src="http://via.placeholder.com/600x400?text=Gear"
                       alt="Card image cap"
                     />
-                    <h5 className="card-header ">{gear.name} </h5>
+                    <h5 className="card-header link-dark ">{gear.name} </h5>
                     <div className="card-body">
                       {/* <h5 className="card-text color-primary">
                       {gear.Category.name}
@@ -72,14 +73,14 @@ function AllGears() {
             );
           })}
         </div>
-        <AddButton link={"/gears/create"} />
+        {/* <AddButton link={"/gears/create"} /> */}
       </div>
     );
   } else {
     return (
       <div>
         <DataNotFound />
-        <AddButton link={"/gears/create"} />
+        {/* <AddButton link={"/gears/create"} /> */}
       </div>
     );
   }

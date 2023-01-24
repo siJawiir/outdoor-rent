@@ -17,12 +17,16 @@ import {
 } from "../pages";
 import AddCategory from "../pages/AddCategory";
 import InfoGearPage from "../pages/InfoGearPage";
+import LoginPage from "../pages/LoginPage";
+import RegisterPage from "../pages/RegisterPage";
 
 function MainContent() {
   return (
     <div>
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/gears" element={<Gears />} />
         <Route path="/gears/create" element={<AddGear />} />
         <Route path="/gears/:id" element={<InfoGearPage />} />
@@ -35,7 +39,10 @@ function MainContent() {
         <Route path="/customers/edit/:id" element={<EditCustomerPage />} />
         <Route path="/transactions" element={<Transactions />} />
         <Route path="/transactions/create" element={<AddTransaction />} />
-        <Route path="/transactions/edit/:id" element={<EditTransactionPage />} />
+        <Route
+          path="/transactions/edit/:id"
+          element={<EditTransactionPage />}
+        />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>

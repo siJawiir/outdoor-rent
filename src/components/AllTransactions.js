@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import DataNotFound from "./DataNotFound";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import {
+  FaCalendar,
+  FaEdit,
+  FaShoppingBag,
+  FaTrashAlt,
+} from "react-icons/fa";
 import AddButton from "../utils/AddButton";
 import {
   deleteTransaction,
@@ -18,18 +23,24 @@ function AllTransactions() {
 
   if (transactions.length !== 0) {
     return (
-      <div className="container my-3 mx-5 min-vh-100">
+      <div className="container my-3 mx-5">
         <div className="row row-cols-5">
           {transactions.map((transaction) => {
             return (
               <div className="col mb-3">
-                <div className="card text-center">
+                <div className="card">
+                  <h5 className="card-header text-center">{transaction.Customer.name} </h5>
                   <div className="card-body">
-                    <h5 className="card-title">{transaction.Customer.name} </h5>
-                    <p className="card-text">{transaction.Gear.name}</p>
-                    <p className="card-text">{transaction.dateStart}</p>
-                    <p className="card-text">{transaction.dateEnd}</p>
-                    <Link
+                    <p className="card-text">
+                      <FaShoppingBag /> <span className="color-text fw-bold">Booking: </span>{transaction.Gear.name}
+                    </p>
+                    <p className="card-text">
+                      <FaCalendar /> <span className="color-primary fw-bold">Start: </span> {transaction.dateStart}
+                    </p>
+                    <p className="card-text">
+                      <FaCalendar /> <span className="color-red fw-bold">End: </span>{transaction.dateEnd}
+                    </p>
+                    {/* <Link
                       to={`/transactions/${transaction.id}`}
                       className="btn btn-success btn-sm text-white rounded-pill mx-2"
                       type="submit"
@@ -42,21 +53,21 @@ function AllTransactions() {
                       type="submit"
                     >
                       <FaTrashAlt />
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>
             );
           })}
         </div>
-        <AddButton link={"/transactions/create"} />
+        {/* <AddButton link={"/transactions/create"} /> */}
       </div>
     );
   } else {
     return (
       <div>
         <DataNotFound />
-        <AddButton link={"/transactions/create"} />
+        {/* <AddButton link={"/transactions/create"} /> */}
       </div>
     );
   }
